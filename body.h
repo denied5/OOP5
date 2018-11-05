@@ -1,7 +1,7 @@
 #pragma once
 #include "metal.h"
 class body :
-	public metal
+	public virtual metal
 {
 private:
 	int serialOfBudy;

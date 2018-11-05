@@ -5,13 +5,13 @@ protected:
 	int serialOfMetal;
 public:
 	void virtual setSerialOfMetal(int);
-	int getSerialOfMetal();
+	int virtual getSerialOfMetal();
 	metal(int k)
 	{
 		serialOfMetal = k;
 	}
 	metal();
-	~metal();
+	virtual ~metal();
 };
 
 
@@ -28,10 +28,11 @@ inline int metal::getSerialOfMetal()
 
 metal::metal()
 {
-	
+	printf("Metal Crear");
 }
 
 
 metal::~metal()
 {
+	printf("Metal Del");
 }

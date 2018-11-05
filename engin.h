@@ -1,16 +1,16 @@
 #pragma once
 #include "metal.h"
 class engin :
-	public metal
+	public virtual metal
 {
 private:
 	int serialOfEngin;
 public:
-	void setSerialOfEngin(int);
+	void  setSerialOfEngin(int);
 	int getSerialOfEngin();
 	engin getEngin();
 	engin();
-	~engin();
+	~engin(); 
 };
 
 

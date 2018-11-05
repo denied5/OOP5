@@ -5,7 +5,8 @@ using namespace std;
 
 int main()
 {
-	avtoPark newPark(2);
-	cout << newPark[0].getBody().getSerialOfMetal();
+	avtoPark newPark(1);
+	//cout << newPark[0].getBody().getSerialOfMetal();
+	newPark.Stats();
 	system("pause");
 }
