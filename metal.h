@@ -9,7 +9,7 @@ public:
 	metal(int k)
 	{
 		serialOfMetal = k;
-	}
+	};
 	metal();
 	virtual ~metal();
 };
@@ -28,11 +28,11 @@ inline int metal::getSerialOfMetal()
 
 metal::metal()
 {
-	printf("Metal Crear");
+	//printf("Metal Crear");
 }
 
 
 metal::~metal()
 {
-	printf("Metal Del");
+	//printf("Metal Del");
 }

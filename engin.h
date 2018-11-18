@@ -10,9 +10,8 @@ public:
 	int getSerialOfEngin();
 	engin getEngin();
 	engin();
-	~engin(); 
+	~engin();
 };
-
 
 
 

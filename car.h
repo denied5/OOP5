@@ -8,11 +8,11 @@ private:
 	int carNumber;
 	int numOfSits;
 	char steeringWheel;
-	
+
 public:
 	car();
 	~car();
-	
+
 	int getCarNumber();
 	void setCarNumber(int k);
 	int getNumOfSits();
@@ -35,7 +35,7 @@ car::~car()
 
 
 
-int car::getCarNumber( )
+int car::getCarNumber()
 {
 	return carNumber;
 }
@@ -49,7 +49,7 @@ void car::setCarNumber(int k)
 
 int car::getNumOfSits()
 {
-	
+
 	return numOfSits;
 }
 
@@ -68,6 +68,6 @@ void car::setSteeringWheels(char k)
 
 char car::getSteeringWheels()
 {
-	
+
 	return steeringWheel;
 }

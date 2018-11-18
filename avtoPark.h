@@ -3,41 +3,61 @@
 #include <ctime>
 #include <iostream>
 using namespace std;
+
 class avtoPark :
 	public car
 {
 private:
-	car* kievAvtoPark;
+	car * kievAvtoPark;
 	int numOfCar;
 
 public:
 	car & operator [] (int num)
 	{
-		if (num < numOfCar)
+		if (num < numOfCar && numOfCar > 0)
 		{
+			numOfCar = num;
 			return kievAvtoPark[num];
 		}
 	}
-	void Stats();
+	template <typename T, typename T2>
+	inline void Stats(T numofCarGet, T2 arreyOfCars);
 	void showSrats();
+	car* GetAvtoPark()
+	{
+		return kievAvtoPark;
+	}
 	avtoPark(int num);
 	avtoPark();
+	friend ostream& operator <<(ostream& os, avtoPark& t)
+	{
+		int k = t.numOfCar;
+		for (size_t i = 0; i < k; i++)
+		{
+			os <<"Serial of Budy: "<< t.kievAvtoPark[i].getSerialOfBudy() <<"\n Serial of engin: "<< t.kievAvtoPark[i].getSerialOfEngin()<<"\n Num of Sits: s" << t.kievAvtoPark[i].getNumOfSits() << endl;
+		}
+		
+		return os;
+	};
 	~avtoPark();
 };
 
 
 
-inline void avtoPark::Stats()
+
+
+template <typename T, typename T2>
+inline void avtoPark::Stats(T numofCarGet, T2 arreyOfCars)
 {
-	int sum = 0;
-	for (int i = 0; i < numOfCar; i++)
+	T sum = 0;
+	for (T i = 0; i < numOfCar; i++)
 	{
-		sum+= kievAvtoPark[i].getBody().getSerialOfMetal();
+		sum += arreyOfCars.getBody().getSerialOfMetal();
 	}
 
-	cout <<"Number of car:" << numOfCar<<endl;
+	cout << "Number of car:" << numOfCar << endl;
 	cout << "The moust popular metal is:";
-	float ind = sum / numOfCar;
+	T ind = sum / numOfCar;
 	if (ind < 100)
 	{
 		cout << "Zink" << endl;
@@ -68,8 +88,8 @@ inline avtoPark::avtoPark(int num)
 	srand(time(0));
 	for (size_t i = 0; i < num; i++)
 	{
-		
-		
+
+
 		kievAvtoPark[i].setCarNumber(1 + rand() % 500);
 		if (1 + rand() % 500 < 250)
 		{
@@ -79,16 +99,16 @@ inline avtoPark::avtoPark(int num)
 		{
 			kievAvtoPark[i].setSteeringWheels('r');
 		}
-		
+
 		kievAvtoPark[i].setNumOfSitis(1 + rand() % 500);
 
-		
+
 		kievAvtoPark[i].setSerialOfBudy(1 + rand() % 500);
 		kievAvtoPark[i].setSerialOfMetal(12);
-		
+
 
 		kievAvtoPark[i].setSerialOfEngin(1 + rand() % 500);
-		
+
 	}
 }
 
@@ -97,6 +117,9 @@ avtoPark::avtoPark()
 }
 
 
+
+
 avtoPark::~avtoPark()
 {
+
 }

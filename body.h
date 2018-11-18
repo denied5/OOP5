@@ -5,7 +5,7 @@ class body :
 {
 private:
 	int serialOfBudy;
-	
+
 public:
 	void setSerialOfBudy(int);
 	int getSerialOfBudy();
