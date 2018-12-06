@@ -5,6 +5,8 @@
 #include "car.h"
 #include <ctime>
 #include <iostream>
+#include <fstream>
+
 using namespace std;
 
 class avtoPark :
@@ -12,20 +14,21 @@ class avtoPark :
 {
 private:
 	car * kievAvtoPark;
-	int numOfCar;
+	
 
 public:
+	int numOfCar;
 	car & operator [] (int num)
 	{
-		if (num < numOfCar && numOfCar > 0)
-		{
-			numOfCar = num;
-			return kievAvtoPark[num];
-		}
+		return kievAvtoPark[num];
 	}
 	template <typename T, typename T2>
 	inline void Stats(T numofCarGet, T2 arreyOfCars);
 	void showSrats();
+	int getNumOfCars()
+	{
+		return numOfCar;
+	}
 	car* GetAvtoPark()
 	{
 		return kievAvtoPark;
@@ -35,22 +38,24 @@ public:
 
 	void createFile()
 	{
-		FILE *f;
-		f = fopen("D:\\game\\bin.dat", "wb");
+		fstream f;
+		f.open("D:\\game\\bin.dat", fstream::out | fstream::binary | fstream::trunc);
 		int* a = new int[numOfCar];
 		for (size_t i = 0; i < numOfCar; i++)
 		{
 			int n = kievAvtoPark[i].getCarNumber();
-			a[i] = n;
+			f.put((char)n);
 		}
-		fwrite(&a, sizeof(double), numOfCar, f);
-		fclose(f);
 		
-		f = fopen("D:\\game\\dec.txt", "w");
+		f.close();
+		
+		f.open("D:\\game\\dec.txt", fstream::out | fstream::trunc);
 		for (size_t i = 0; i < numOfCar; i++)
 		{
-			fprintf(f, "%d = %d\n",i, a[i]);
+			f.put((char)a[i]);
+			
 		}
+		f.close();
 	}
 
 	friend ostream& operator <<(ostream& os, avtoPark& t)

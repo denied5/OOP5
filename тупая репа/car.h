@@ -11,6 +11,12 @@ private:
 
 public:
 	car();
+	car(int i)
+	{
+		carNumber = i;
+		numOfSits = 4;
+		steeringWheel = 'r';
+	}
 	~car();
 
 	int getCarNumber();

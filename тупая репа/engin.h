@@ -10,6 +10,10 @@ public:
 	int getSerialOfEngin();
 	engin getEngin();
 	engin();
+	engin(int  i)
+	{
+		serialOfEngin = i;
+	}
 	~engin();
 };
 

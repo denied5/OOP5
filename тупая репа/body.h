@@ -12,6 +12,10 @@ public:
 	void setBody(body k);
 	body getBody();
 	body();
+	body(int i)
+	{
+		serialOfBudy = i;
+	}
 	~body();
 };
 
